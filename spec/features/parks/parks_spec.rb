@@ -38,7 +38,6 @@ RSpec.describe "PARKS", type: :feature do
       expect(page).to have_content(@park_1.average_thrill_rating)
       expect(page.text.index(@ride_2.name)).to be < page.text.index(@ride_3.name)
       expect(page.text.index(@ride_3.name)).to be < page.text.index(@ride_1.name)
-      save_and_open_page
     end
   end
 
