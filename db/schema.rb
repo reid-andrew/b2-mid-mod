@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200403160111) do
+ActiveRecord::Schema.define(version: 20200403165021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20200403160111) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ridemechanics", force: :cascade do |t|
+    t.bigint "ride_id"
+    t.bigint "mechanic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mechanic_id"], name: "index_ridemechanics_on_mechanic_id"
+    t.index ["ride_id"], name: "index_ridemechanics_on_ride_id"
+  end
+
   create_table "rides", force: :cascade do |t|
     t.string "name"
     t.float "thrill"
@@ -38,5 +47,7 @@ ActiveRecord::Schema.define(version: 20200403160111) do
     t.index ["park_id"], name: "index_rides_on_park_id"
   end
 
+  add_foreign_key "ridemechanics", "mechanics"
+  add_foreign_key "ridemechanics", "rides"
   add_foreign_key "rides", "parks"
 end

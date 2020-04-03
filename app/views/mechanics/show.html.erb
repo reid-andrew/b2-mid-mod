@@ -2,3 +2,13 @@
 <p>Years of Experience: <%= "#{@mechanic.years_experience}" %>
 <br>
 <p>Rides currently assigned to work on:</p>
+<% @mechanic.rides.each do |ride| %>
+  <%= "#{ride.name}" %>
+<% end %>
+<br>
+<br>
+<%= form_tag("/mechanics/#{@mechanic[:id]}", method: :post) do %>
+  <%= label_tag :ride %>
+  <%= text_field_tag :ride %>
+  <%= submit_tag 'Submit' %>
+<% end %>
