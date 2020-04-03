@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 describe Ride, type: :model do
   describe "relationships" do
     it {should belong_to :park}
@@ -11,5 +10,4 @@ describe Ride, type: :model do
     it {should validate_presence_of :thrill}
     it {should validate_presence_of :park}
   end
-
 end

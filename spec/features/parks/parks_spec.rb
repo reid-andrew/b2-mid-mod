@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe "PARKS", type: :feature do
   before(:each) do
     @park_1 = Park.create(  name: "Hershey Park",
@@ -16,7 +15,6 @@ RSpec.describe "PARKS", type: :feature do
     @ride_3 = Ride.create(  name: "Storm Runner",
                             thrill: 7.0,
                             park: @park_1)
-
   end
 
   describe "Show Page - A user" do
@@ -40,5 +38,4 @@ RSpec.describe "PARKS", type: :feature do
       expect(page.text.index(@ride_3.name)).to be < page.text.index(@ride_1.name)
     end
   end
-
 end

@@ -1,5 +1,4 @@
 class ParksController < ApplicationController
-
   def show
     @park = Park.find(park_params[:park_id])
   end
@@ -9,5 +8,4 @@ class ParksController < ApplicationController
   def park_params
     params.permit(:park_id, :admission)
   end
-
 end

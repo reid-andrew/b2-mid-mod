@@ -1,8 +1,6 @@
 class Park < ApplicationRecord
   has_many :rides
-
   validates_presence_of :name, :admission
-
 
   def admission_price
     "$#{sprintf('%.2f', admission)}"

@@ -1,5 +1,4 @@
 class MechanicsController < ApplicationController
-
   def index
     @mechanics = Mechanic.all
   end
@@ -13,5 +12,4 @@ class MechanicsController < ApplicationController
   def mechanic_params
     params.permit(:mechanic_id, :name, :years_experience)
   end
-
 end

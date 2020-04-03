@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe "MECHANICS", type: :feature do
   before(:each) do
     @mechanic_1 = Mechanic.create(  name: "Sam Mills",

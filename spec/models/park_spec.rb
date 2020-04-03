@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 describe Park, type: :model do
   describe "relationships" do
     it {should have_many :rides}
@@ -58,10 +57,8 @@ describe Park, type: :model do
                       thrill: 6.0,
                       park: park_1)
 
-
-        expect(park_1.rides_by_alpha).to eq([ride_2, ride_3, ride_1])    
+        expect(park_1.rides_by_alpha).to eq([ride_2, ride_3, ride_1])
       end
     end
   end
-
 end
