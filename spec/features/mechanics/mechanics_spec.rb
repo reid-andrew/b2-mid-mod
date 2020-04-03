@@ -21,4 +21,18 @@ RSpec.describe "MECHANICS", type: :feature do
       end
     end
   end
+
+  describe "Show Page - A user" do
+    it "can see their name, years experience, and rides" do
+      visit "/mechanics/#{@mechanic_1[:id]}"
+
+      expect(page).to have_content("Mechanic: Sam Mills")
+      expect(page).to have_content("Years of Experience: 10")
+
+      visit "/mechanics/#{@mechanic_2[:id]}"
+
+      expect(page).to have_content("Mechanic: Kara Smith")
+      expect(page).to have_content("Years of Experience: 11")
+    end
+  end
 end
