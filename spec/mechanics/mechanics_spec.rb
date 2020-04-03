@@ -5,7 +5,7 @@ RSpec.describe "MECHANICS", type: :feature do
     @mechanic_1 = Mechanic.create(  name: "Sam Mills",
                                     years_experience: 10)
     @mechanic_2 = Mechanic.create(  name: "Kara Smith",
-                                    years_experience: 10)
+                                    years_experience: 11)
   end
 
   describe "Index Page - A user" do
@@ -13,13 +13,11 @@ RSpec.describe "MECHANICS", type: :feature do
       visit "/mechanics"
 
       expect(page).to have_content("All Mechanics")
-      within ("##{@mechanic_1.id}") do
-        expect(page).to have_content("Sam Mills")
-        expect(page).to have_content("10 years of experience")
+      within ("#Mechanic-#{@mechanic_1.id}") do
+        expect(page).to have_content("Sam Mills - 10 years of experience")
       end
-      within ("##{@mechanic_2.id}") do
-        expect(page).to have_content("Kara Smith")
-        expect(page).to have_content("11 years of experience")
+      within ("#Mechanic-#{@mechanic_2.id}") do
+        expect(page).to have_content("Kara Smith - 11 years of experience")
       end
     end
   end
